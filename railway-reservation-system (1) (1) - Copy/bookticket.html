@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Ticket</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2e2e2e;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #2575fc;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #2575fc;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1a5ed7;
+    }
+
+    #confirmation {
+      margin-top: 25px;
+      padding: 16px;
+      background-color: #dff0d8;
+      border-left: 6px solid #4caf50;
+      color: #2e7d32;
+      font-weight: 500;
+      border-radius: 10px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Book Your Train Ticket</h1>
+    <form id="ticketForm">
+      <div class="form-group">
+        <label for="from">From:</label>
+        <input type="text" id="from" placeholder="Enter departure station" required />
+      </div>
+
+      <div class="form-group">
+        <label for="to">To:</label>
+        <input type="text" id="to" placeholder="Enter arrival station" required />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date of Journey:</label>
+        <input type="date" id="date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="class">Class:</label>
+        <select id="class">
+          <option value="sleeper">Sleeper</option>
+          <option value="ac1">AC First Class</option>
+          <option value="ac2">AC 2-Tier</option>
+          <option value="ac3">AC 3-Tier</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="passenger">Passenger Name:</label>
+        <input type="text" id="passenger" placeholder="Enter passenger name" required />
+      </div>
+
+      <button type="submit">Book Now</button>
+    </form>
+
+    <div id="confirmation" class="hidden"></div>
+  </div>
+
+  <script>
+    document.getElementById('ticketForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const from = document.getElementById('from').value;
+      const to = document.getElementById('to').value;
+      const date = document.getElementById('date').value;
+      const travelClass = document.getElementById('class').value;
+      const passenger = document.getElementById('passenger').value;
+
+      const confirmation = document.getElementById('confirmation');
+      confirmation.innerHTML = `
+        <strong>Ticket Booked Successfully!</strong><br />
+        <b>Passenger:</b> ${passenger} <br />
+        <b>From:</b> ${from} <br />
+        <b>To:</b> ${to} <br />
+        <b>Date:</b> ${date} <br />
+        <b>Class:</b> ${travelClass}
+      `;
+      confirmation.classList.remove('hidden');
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>

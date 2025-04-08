@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="logo.jpg" alt="Indian Railways Logo">
+        </div>
+        <div class="nav-links">
+            <i class="fa-solid fa-house"></i>
+            <a href="#">Home</a>
+            <a href="#">PNR Status</a>
+            <a href="#">Train Schedule</a>
+            <a href="contactUs.html">Contact Us</a>
+            <a href="Registrationpage.html">Registration</a>
+            <a href="Loginpage.html">Login</a>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="left-section">
+            <h1 class="typing-effect">Welcome to Indian Railways</h1>
+
+            <div class="admin-login">
+                <h2>Enter Your Username and Login Please</h2>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username or email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <div class="loginbutton">
+                    <button class="btn" onclick="window.location.href='bookticket.html'">Login</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <img id="slideshow" src="backgorund3.jpg" alt="Railway Slideshow">
+        </div>
+    </div>
+
+    <script src="script.js">
+
+document.getElementById("loginBtn").addEventListener("click", function () {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (username === "" || password === "") {
+        alert("Please enter both username and password.");
+    } else {
+        window.location.href = "bookTicket.html";
+    }
+});
+
+    </script>
+</body>
+
+</html>
